@@ -48,7 +48,7 @@ func GenerateToken(username string) (string, error) {
 }
 
 func GenerateRandomKey() string {
-	key := make([]byte, 32) // generate a 256 bit key
+	key := make([]byte, 32) // generate a 256-bit key
 	_, err := rand.Read(key)
 	if err != nil {
 		panic("Failed to generate random key: " + err.Error())
