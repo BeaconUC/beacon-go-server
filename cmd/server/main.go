@@ -3,17 +3,15 @@ package main
 import (
 	"context"
 	"log"
-	"os"
 
 	"beacon-go-server/pkg/api"
 	"beacon-go-server/pkg/cache"
 	"beacon-go-server/pkg/database"
+	"beacon-go-server/pkg/database/postgres"
 
 	"go.uber.org/zap"
 
 	"github.com/gin-gonic/gin"
-
-	"github.com/joho/godotenv"
 )
 
 // @title           Swagger Example API
@@ -43,8 +41,7 @@ import (
 // @externalDocs.url          https://swagger.io/resources/open-api/
 func main() {
 	redisClient := cache.NewRedisClient()
-	db := database.NewDatabase()
-	dbWrapper := &database.GormDatabase{DB: db}
+	db := postgres.NewPostgresDatabase()
 	mongo := database.SetupMongoDB()
 	ctx := context.Background()
 	logger, _ := zap.NewProduction()
@@ -53,7 +50,7 @@ func main() {
 	//gin.SetMode(gin.ReleaseMode)
 	gin.SetMode(gin.DebugMode)
 
-	r := api.NewRouter(logger, mongo, dbWrapper, redisClient, &ctx)
+	r := api.NewRouter(logger, mongo, db, redisClient, &ctx)
 
 	if err := r.Run(":8001"); err != nil {
 		log.Fatal(err)
