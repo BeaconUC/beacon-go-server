@@ -2,13 +2,13 @@
 // Source: pkg/database/db.go
 
 // Package database is a generated GoMock package.
-package database
+package postgres
 
 import (
-	reflect "reflect"
+	"reflect"
 
-	gomock "github.com/golang/mock/gomock"
-	gorm "gorm.io/gorm"
+	"github.com/golang/mock/gomock"
+	"gorm.io/gorm"
 )
 
 // MockDatabase is a mock of Database interface.
