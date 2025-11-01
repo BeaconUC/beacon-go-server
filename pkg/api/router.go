@@ -2,10 +2,10 @@ package api
 
 import (
 	"context"
-	"database/sql"
 	"time"
 
 	"beacon-go-server/pkg/cache"
+	"beacon-go-server/pkg/database"
 	"beacon-go-server/pkg/middleware"
 
 	"beacon-go-server/docs"
@@ -29,7 +29,7 @@ import (
 func NewRouter(
 	logger *zap.Logger,
 	mongoCollection *mongo.Collection,
-	db *sql.DB,
+	db database.DB,
 	redisClient cache.Cache,
 	ctx *context.Context,
 ) *gin.Engine {
