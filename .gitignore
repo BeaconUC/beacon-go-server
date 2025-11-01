@@ -24,3 +24,7 @@ venv
 # Misc
 .idea
 .DS_Store
+
+# Supabase
+.branches
+.temp
