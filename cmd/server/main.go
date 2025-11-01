@@ -7,7 +7,7 @@ import (
 	"beacon-go-server/pkg/api"
 	"beacon-go-server/pkg/cache"
 	"beacon-go-server/pkg/database"
-	"beacon-go-server/pkg/database/postgres"
+	"beacon-go-server/pkg/database/postgresql"
 
 	"go.uber.org/zap"
 
@@ -41,7 +41,7 @@ import (
 // @externalDocs.url          https://swagger.io/resources/open-api/
 func main() {
 	redisClient := cache.NewRedisClient()
-	db := postgres.NewPostgresDatabase()
+	db := postgresql.NewPostgresDatabase()
 	mongo := database.SetupMongoDB()
 	ctx := context.Background()
 	logger, _ := zap.NewProduction()
