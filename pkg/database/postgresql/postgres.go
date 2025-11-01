@@ -11,10 +11,12 @@ import (
 	"beacon-go-server/pkg/database"
 
 	_ "github.com/jackc/pgx/v5/stdlib"
+
+	"beacon-go-server/pkg/database/postgresql/sqlc"
 )
 
 type PostgresDatabase struct {
-	*sql.DB
+	Queries *sqlc.Queries
 }
 
 func (db *PostgresDatabase) QueryContext(ctx context.Context, query string, args ...interface{}) (*sql.Rows, error) {
