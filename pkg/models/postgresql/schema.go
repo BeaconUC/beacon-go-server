@@ -1,4 +1,4 @@
-package database
+package postgresql
 
 type PublicProfilesSelect struct {
 	CreatedAt   string  `json:"created_at"`
