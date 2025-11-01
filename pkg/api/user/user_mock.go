@@ -2,13 +2,13 @@
 // Source: pkg/api/user.go
 
 // Package api is a generated GoMock package.
-package api
+package user
 
 import (
-	reflect "reflect"
+	"reflect"
 
-	gin "github.com/gin-gonic/gin"
-	gomock "github.com/golang/mock/gomock"
+	"github.com/gin-gonic/gin"
+	"github.com/golang/mock/gomock"
 )
 
 // MockUserRepository is a mock of UserRepository interface.
